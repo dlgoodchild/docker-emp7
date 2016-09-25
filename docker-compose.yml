@@ -6,35 +6,35 @@ services:
       context: "./mysql"
     container_name: "${project_prefix}-mysql"
     env_file:
-      - ./.env
+      - "./.env"
     environment:
       MYSQL_ADMIN_PASS: "test"
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/sqldata:/var/lib/mysql
+      - "./mysql/sqldata:/var/lib/mysql"
   php7:
     build:
       context: "./php7"
     container_name: "${project_prefix}-php7"
     env_file:
-      - ./.env
+      - "./.env"
     ports:
       - "9000:9000"
     links:
       - "mysql"
     volumes:
-      - ${project_source}:/home/sites/project
+      - "${project_source}:/home/sites/project"
   nginx:
     build:
       context: "./nginx"
     container_name: "${project_prefix}-nginx"
     env_file:
-      - ./.env
+      - "./.env"
     ports:
       - "80:80"
       - "443:443"
     links:
       - "php7"
     volumes:
-      - ${project_source}:/home/sites/project
+      - "${project_source}:/home/sites/project"
