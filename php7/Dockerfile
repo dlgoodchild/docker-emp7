@@ -175,7 +175,7 @@ RUN git clone https://${github_auth}:x-oauth-basic@github.com/mkoppanen/imagick.
 	&& /usr/local/php/bin/phpize \
 	&& ./configure --with-php-config="/usr/local/php/bin/php-config" \
 	&& make \
-	&& make install
+	&& make install \
 	&& cp /root/imagick-src/modules/imagick.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/
 
 COPY ./php.d/imagick.ini /etc/php.d/imagick.ini
