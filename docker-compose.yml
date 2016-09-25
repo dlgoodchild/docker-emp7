@@ -16,6 +16,8 @@ services:
   php7:
     build:
       context: "./php7"
+      args:
+        github_auth: ""
     container_name: "${project_prefix}-php7"
     env_file:
       - "./.env"
