@@ -1,0 +1,57 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+
+	# If you require SSL connections, then simply uncomment the following lines.
+	# You will probably require setting up an SSL cert however.
+	# listen 443 default_server;
+	# listen [::]:443 default_server ipv6only=on;
+
+	root /home/sites/project/www;
+	index index.php index.html index.htm;
+
+	# Add additional server names here (before localhost)
+	server_name localhost;
+
+	error_page 404 /404.html;
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /home/sites/project/error;
+	}
+
+	if ( $request_filename ~* \.(aspx|rb|jsp|java|cgi)$ ) {
+		return 410;
+	}
+
+	location = /robots.txt {
+		access_log off;
+		log_not_found off;
+	}
+
+	location = /favicon.ico {
+		access_log off;
+		log_not_found off;
+	}
+
+	location ~ /\. {
+		access_log off;
+		log_not_found off;
+		deny all;
+	}
+
+	location ~* \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+	    fastcgi_pass slim-php7:9000;
+	    fastcgi_index index.php;
+	    fastcgi_hide_header X-Powered-By;
+
+	    include fastcgi_params;
+
+		fastcgi_param X_SCRIPT_NAME $fastcgi_script_name;
+		fastcgi_param X_PATH_INFO $fastcgi_path_info;
+	}
+
+	location / {
+		try_files $uri $uri/ /index.php;
+	}
+}
