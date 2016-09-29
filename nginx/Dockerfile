@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y \
 RUN mv /etc/nginx/sites-enabled /etc/nginx/ignored.sites-enabled
 RUN mkdir -p /etc/nginx/sites-enabled
 RUN mkdir -p /home/sites/project/www
+
 COPY ./sites/project.site /etc/nginx/sites-enabled/project.site
+
+RUN sed -i -e 's/emp-php7/${project_source}-php7/' /etc/nginx/sites-enabled/project.site
 
 ENV PATH /usr/local/nginx/bin:$PATH
 

@@ -41,7 +41,7 @@ server {
 
 	location ~* \.php$ {
 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-	    fastcgi_pass slim-php7:9000;
+	    fastcgi_pass emp-php7:9000;
 	    fastcgi_index index.php;
 	    fastcgi_hide_header X-Powered-By;
 
