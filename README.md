@@ -22,6 +22,17 @@ Compile any version of PHP greater than 5.4.
 6. Run `docker-compose -p $project_prefix build` using the same _project_prefix_ defined in _.env_
 7. Run `docker-compose -p $project_prefix up -d` 
 
+### Directory structure
+The configuration of Nginx assumes that your web directory (which you will mount as a volume) contains  
+- www
+- error
+
+The _error/_ directory can contain .html files such as 404.html, 500.html, where the name is the http error code.  
+The _www/_ directory will contain you publicly accessible project files, such as index.php.  
+
+Further, Nginx is configured to pass all requests that do not contain a .php extension to the index.php file.
+
+
 ### Project Integration
 Optionally delete the .git after clone and commit direct to your project's root directory under the _docker_ folder.
 
