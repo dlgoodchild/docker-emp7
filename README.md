@@ -1,9 +1,9 @@
 # docker-emp7
-Docker setup for Nginx, MySQL and PHP7.  
+Docker setup for Nginx, MariaDB and PHP7.  
 Compile any version of PHP greater than 5.4.
 
 ### What's Installed
-1. PHP7.1RC2
+1. PHP7.4RC2
  - Xdebug 2.4.1
  - IMagick extension
  - ImageMagick library
@@ -11,7 +11,7 @@ Compile any version of PHP greater than 5.4.
  - Sass compiler
  - Composer
 2. Nginx (latest from apt-get on Ubuntu 14.04 / Trusty)
-3. MySQL 5.5 (Ubuntu 14.04 / Trusty)
+3. MariaDB (Ubuntu 14.04 / Trusty)
 
 ### Usage
 1. Clone this repository into a folder named _docker_.  
