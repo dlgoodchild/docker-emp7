@@ -3,7 +3,7 @@ Docker setup for Nginx, MariaDB and PHP7.
 Compile any version of PHP greater than 5.4.
 
 ### What's Installed
-1. PHP7.4RC2
+1. PHP7.1RC4
  - Xdebug 2.4.1
  - IMagick extension
  - ImageMagick library
