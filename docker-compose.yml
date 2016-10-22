@@ -1,18 +1,6 @@
 version: '2'
 
 services:
-  mysql:
-    build:
-      context: "./mysql"
-    container_name: "${project_prefix}-mysql"
-    env_file:
-      - "./.env"
-    environment:
-      MYSQL_ADMIN_PASS: "test"
-    ports:
-      - "3366:3306"
-    volumes:
-      - "./mysql/sqldata:/var/lib/mysql"
 
   mariadb:
     image: mariadb
@@ -24,20 +12,15 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/sqldata:/var/lib/mysql
+      - "./sqldata:/var/lib/mysql"
 
   php7:
-    build:
-      context: "./php7"
-      args:
-        github_auth: ""
     container_name: "${project_prefix}-php7"
     env_file:
       - "./.env"
     ports:
       - "9000:9000"
     links:
-      - "mysql"
       - "mariadb"
     volumes:
       - "${project_source}:/home/sites/project"

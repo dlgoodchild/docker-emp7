@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+
+  php7:
+    build:
+      context: "./php7"
+      args:
+        github_auth: ""
