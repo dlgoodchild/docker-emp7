@@ -1,7 +1,7 @@
 FROM ubuntu:14.04.3
 
 ARG github_auth=""
-ARG github_php_version="php-7.1.0RC3"
+ARG github_php_version="php-7.1.0RC4"
 ARG github_xdebug_version="master"
 #tags/XDEBUG_2_4_1, but doesn't work for php-7.1
 
