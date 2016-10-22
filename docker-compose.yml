@@ -23,7 +23,7 @@ services:
     links:
       - "mariadb"
     volumes:
-      - "${project_source}:/home/sites/project"
+      - "${project_source}:/var/www/default"
   nginx:
     build:
       context: "./nginx"
@@ -36,4 +36,4 @@ services:
     links:
       - "php7"
     volumes:
-      - "${project_source}:/home/sites/project"
+      - "${project_source}:/var/www/default"

@@ -7,7 +7,7 @@ server {
 	# listen 443 default_server;
 	# listen [::]:443 default_server ipv6only=on;
 
-	root /home/sites/project/www;
+	root /var/www/default/www;
 	index index.php index.html index.htm;
 
 	# Add additional server names here (before localhost)
@@ -16,7 +16,7 @@ server {
 	error_page 404 /404.html;
 	error_page 500 502 503 504 /50x.html;
 	location = /50x.html {
-		root /home/sites/project/error;
+		root /var/www/default/error;
 	}
 
 	if ( $request_filename ~* \.(aspx|rb|jsp|java|cgi)$ ) {
