@@ -13,7 +13,7 @@ RUN mkdir -p /var/www/default/www
 
 COPY ./sites/default.site /etc/nginx/sites-enabled/default.site
 
-RUN sed -i -e 's/emp-php7/${project_source}-php7/' /etc/nginx/sites-enabled/project.site
+RUN sed -i -e 's/emp-php7/${project_prefix}-php7/' /etc/nginx/sites-enabled/default.site
 
 ENV PATH /usr/local/nginx/bin:$PATH
 
